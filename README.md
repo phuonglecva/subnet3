@@ -31,7 +31,12 @@ For search and retrieval purposes, validators have access to the indexing table,
 - `neurons/validator.py`: This script which defines the validator's behavior, i.e., how the validator requests information from miners and determines scores.
 
 
-
+# Twitter crawler
+This script scan keywords in keywords.txt and scrap data from twitter.com
+```
+pip install selenium webdriver_manager
+python twitter_crawler.py
+```
 
 # Installation
 This repository requires python3.8 or higher. To install, simply clone this repository and install the requirements.
