@@ -40,9 +40,9 @@ class TwitterCrawler:
         options = webdriver.ChromeOptions()
         service = webdriver.ChromeService(executable_path=ChromeDriverManager().install())
         options.add_argument("--window-size=2560,1440")
-        options.add_argument("--headless=new")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-gpu")
+        # options.add_argument("--headless=new")
+        # options.add_argument("--no-sandbox")
+        # options.add_argument("--disable-gpu")
         options.add_argument("--incognito")
         options.add_argument("--disable-cookie-encryption")
         options.add_extension("old-twitter.crx")
@@ -135,12 +135,13 @@ class TwitterCrawler:
             time.sleep(3)
         # WebDriverWait(self.driver, 25).until(
         #     EC.presence_of_element_located((By.CSS_SELECTOR, "article[data-testid='tweet']")))
-        time.sleep(30)
+        time.sleep(5)
         articles = self.driver.find_elements(
             By.CSS_SELECTOR, "article[data-testid='tweet']")
         
         if articles is None or len(articles) == 0:
             print("no articles")
+            self.refresh_page()
             return
         for article in articles:
             try:
